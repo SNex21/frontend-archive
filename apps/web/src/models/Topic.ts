@@ -2,7 +2,7 @@ interface Topic {
   id: number;
   slug: string;
   title: string;
-  identifier: string;
+  ege_number: string;
 }
 
 export { type Topic };

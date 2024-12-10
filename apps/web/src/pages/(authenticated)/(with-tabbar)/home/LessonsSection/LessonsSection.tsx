@@ -48,13 +48,13 @@ const LessonCards: FC = () => {
   );
 };
 
-const LessonCard: FC<Topic> = ({ id, title, identifier }) => {
+const LessonCard: FC<Topic> = ({ id, title, ege_number }) => {
   return (
     <Haptic type="impact" value="medium" asChild>
       <Link to={`/lesson/topic/${id}`}>
         <div className={styles.card}>
           <div className={styles.card__content}>
-            {identifier && <span className={styles.card__content__number}>№{identifier}</span>}
+            {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
             <h3 className={styles.card__content__title}>{title}</h3>
           </div>
         </div>
