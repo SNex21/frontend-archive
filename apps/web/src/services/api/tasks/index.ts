@@ -38,7 +38,7 @@ const mapSession = (apiData: any): Session => {
 };
 
 const mapChallenge = (apiChallenge: any): Challenge => {
-  const ct = apiChallenge.slug as ChallengeType
+  const ct = apiChallenge.type as ChallengeType
 
   return {
     id: String(apiChallenge.id),
