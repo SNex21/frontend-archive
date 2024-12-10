@@ -25,9 +25,10 @@ export const updateUser = async ({ id, token, ...body }: UpdateUserProps) => {
 };
 
 export const getUserStats = async ({ id, token }: GetUserProps): Promise<UserStats> => {
-  const { data } = await apiClient.get<UserStats>(`${API_ENDPOINTS.USER}/${id}/stats`, {
+  const { data } = await apiClient.get<UserStats>(`${API_ENDPOINTS.USER}/statistic`, {
     headers: {
       Authorization: `Bearer ${token}`,
+      id: `${id}`,
     },
   });
   return data;
