@@ -27,7 +27,6 @@ export interface Choice {
   text: string;
   isCorrect: boolean;
 }
-
 export interface DisplayToken {
   text: string;
   isBlank: boolean;
