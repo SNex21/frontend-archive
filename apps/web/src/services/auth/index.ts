@@ -11,7 +11,6 @@ export const checkUsername = async ({ username, cancelToken }: CheckUsernameReq)
 
 export const authTelegramMiniApp = async (responseData: AuthTelegramMiniAppReq) => {
   const { data } = await authClient.post<AuthTelegramMiniAppRes>(API_ENDPOINTS.AUTH_TELEGRAM_MINI_APP, responseData);
-  console.log(data)
   return data;
 };
 

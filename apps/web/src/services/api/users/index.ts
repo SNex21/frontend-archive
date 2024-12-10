@@ -15,9 +15,10 @@ export const getUser = async ({ id, token }: GetUserProps): Promise<User> => {
 };
 
 export const updateUser = async ({ id, token, ...body }: UpdateUserProps) => {
-  const { data } = await apiClient.patch(`${API_ENDPOINTS.USER}/${id}`, body, {
+  const { data } = await apiClient.patch(`${API_ENDPOINTS.USER}`, body, {
     headers: {
       Authorization: `Bearer ${token}`,
+      id: `${id}`,
     },
   });
   return data;
