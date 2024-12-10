@@ -8,6 +8,7 @@ export const getUser = async ({ id, token }: GetUserProps): Promise<User> => {
   const { data } = await apiClient.get<User>(`${API_ENDPOINTS.USER_DEFAULT}`, {
     headers: {
       Authorization: `Bearer ${token}`,
+      id: '${id}',
     },
   });
   return data;
