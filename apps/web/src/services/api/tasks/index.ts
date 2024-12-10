@@ -1,7 +1,7 @@
 import { GetTasksTopicsRes, GetTasksReq, GetTasksRes, CompleteSessionReq } from "@/services/api/tasks/types.ts";
 import { apiClient } from "@/services/api/client.ts";
 import { API_ENDPOINTS } from "@/services/api/endpoints.ts";
-import { Session, Challenge, Choice, DisplayToken} from "@/models/Session.ts";
+import { Session, Challenge, Choice, DisplayToken, ChallengeType} from "@/models/Session.ts";
 
 
 
@@ -21,7 +21,6 @@ export const getTasks = async ({ token, ...params }: GetTasksReq): Promise<GetTa
     },
   });
 
-  // Маппинг данных из API в модель Session
   return mapSession(data);
 };
 
@@ -39,9 +38,11 @@ const mapSession = (apiData: any): Session => {
 };
 
 const mapChallenge = (apiChallenge: any): Challenge => {
+  const ct = apiChallenge.slug as ChallengeType
+
   return {
     id: String(apiChallenge.id),
-    type: apiChallenge.slug,
+    type: ct,
     prompt: apiChallenge.prompt,
     displayTokens: apiChallenge.tokens?.map(mapDisplayToken),
     choices: apiChallenge.answers?.map(mapChoice),
@@ -51,14 +52,14 @@ const mapChallenge = (apiChallenge: any): Challenge => {
   };
 };
 
-// const mapChallengeType = (type: string): ChallengeType => {
-//   switch (type) {
-//     case "string":
-//       return "gapFill";
-//     default:
-//       throw new Error(`Unknown challenge type: ${type}`);
-//   }
-// };
+const mapChallengeType = (type: string): ChallengeType => {
+  switch (type) {
+    case "string":
+      return "gapFill";
+    default:
+      throw new Error(`Unknown challenge type: ${type}`);
+  }
+};
 
 const mapDisplayToken = (apiToken: any): DisplayToken => {
   return {
