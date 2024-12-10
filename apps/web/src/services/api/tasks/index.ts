@@ -1,7 +1,7 @@
 import { GetTasksTopicsRes, GetTasksReq, GetTasksRes, CompleteSessionReq } from "@/services/api/tasks/types.ts";
 import { apiClient } from "@/services/api/client.ts";
 import { API_ENDPOINTS } from "@/services/api/endpoints.ts";
-import { Session } from "@/models/Session.ts";
+import { Session, Challenge, ChallengeType, Choice, DisplayToken} from "@/models/Session.ts";
 
 
 
