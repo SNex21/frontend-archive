@@ -35,17 +35,17 @@ const StatsSection: FC = () => {
     <section className="wrapper">
       <div className={styles.cards}>
         <StatsCard
-          value={stats.streak.total}
+          value={stats.streak}
           label={"Ударный режим"}
           icon={<FireEmoji size={25} />}
         />
         <StatsCard
-          value={stats.tasks.total}
+          value={stats.total_tasks}
           label={"Всего решено"}
           icon={<CheckMarkButtonEmoji size={22} />}
         />
         <StatsCard
-          value={`${stats.tasks.rightPercent}%`}
+          value={`${stats.accuracy}%`}
           label={"Решено верно"}
           icon={<ThumbsUpEmoji size={25} />}
           style={{ gridColumn: "span 2" }}
