@@ -51,14 +51,14 @@ const mapChallenge = (apiChallenge: any): Challenge => {
   };
 };
 
-const mapChallengeType = (type: string): ChallengeType => {
-  switch (type) {
-    case "string":
-      return "gapFill";
-    default:
-      throw new Error(`Unknown challenge type: ${type}`);
-  }
-};
+// const mapChallengeType = (type: string): ChallengeType => {
+//   switch (type) {
+//     case "string":
+//       return "gapFill";
+//     default:
+//       throw new Error(`Unknown challenge type: ${type}`);
+//   }
+// };
 
 const mapDisplayToken = (apiToken: any): DisplayToken => {
   return {
