@@ -26,38 +26,42 @@ export const getTasks = async ({ token, ...params }: GetTasksReq): Promise<GetTa
 };
 
 const mapSession = (apiData: any): Session => {
-  return {
-    id: apiData.id,
-    isHard: apiData.isHard,
-    isWorkOnMistakes: apiData.isWorkOnMistakes,
+  const session = {} as Session
 
-    topic: apiData.topic,
-    amount: apiData.amount,
-    challenges: apiData.challenges.map(mapChallenge),
-  };
+  session.id = apiData.id
+  session.isHard = apiData.is_hard
+  session.isWorkOnMistakes = apiData.is_work_on_mistakes
+  session.topic = apiData.topic
+  session.amount = apiData.amount
+  session.challenges = apiData.challenges.map(mapChallenge)
+  return session;
 };
 
 const mapChallenge = (apiChallenge: any): Challenge => {
-  return {
-    id: String(apiChallenge.id),
-    type: mapChallengeType(apiChallenge.type),
-    prompt: apiChallenge.prompt,
-    displayTokens: apiChallenge.tokens?.map(mapDisplayToken),
-    choices: apiChallenge.answers?.map(mapChoice),
-    isHard: apiChallenge.is_hard,
-    isWorkOnMistakes: apiChallenge.is_work_on_mistakes,
-    explanation: apiChallenge.comment,
-  };
+  const challenge = {} as Challenge
+
+  challenge.id = apiChallenge.id
+  challenge.type = apiChallenge.slug
+  challenge.prompt = apiChallenge.prompt
+  challenge.displayTokens = apiChallenge.tokens?.map(mapDisplayToken)
+  challenge.choices = apiChallenge.answers?.map(mapChoice)
+  challenge.isHard = apiChallenge.is_hard
+  challenge.isWorkOnMistakes = apiChallenge.is_work_on_mistakes
+  challenge.explanation = apiChallenge.comment
+  return challenge;
 };
 
-const mapChallengeType = (type: string): ChallengeType => {
-  switch (type) {
-    case "string":
-      return "gapFill";
-    default:
-      throw new Error(`Unknown challenge type: ${type}`);
-  }
-};
+// const mapChallengeType = (type: string): ChallengeType => {
+//   const challenge_type = {} as ChallengeType
+
+//   challenge_type.
+//   // switch (type) {
+//   //   case "string":
+//   //     return "gapFill";
+//   //   default:
+//   //     throw new Error(`Unknown challenge type: ${type}`);
+//   // }
+// };
 
 const mapDisplayToken = (apiToken: any): DisplayToken => {
   return {
