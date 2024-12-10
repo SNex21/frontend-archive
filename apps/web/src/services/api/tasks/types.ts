@@ -4,7 +4,7 @@ import { Guess, Session } from "@/models/Session.ts";
 export interface GetTasksReq {
   isHard?: boolean;
   isWorkOnMistakes?: boolean;
-  topic?: number;
+  topic_id?: number;
   amount?: number;
 
   token: string;

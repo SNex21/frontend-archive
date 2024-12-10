@@ -30,7 +30,7 @@ export default function LessonPage() {
     queryFn: async () =>
       getTasks({
         token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
-        topic: params.topicId ? Number(params.topicId) : undefined,
+        topic_id: params.topicId ? Number(params.topicId) : undefined,
         isHard: params["*"] === "hard",
         isWorkOnMistakes: params["*"] === "mistakes",
       }),
