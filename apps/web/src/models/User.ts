@@ -10,14 +10,9 @@ interface User {
 }
 
 interface UserStats {
-  streak: {
-    isActive: boolean;
-    total: number;
-  };
-  tasks: {
-    total: number;
-    rightPercent: number;
-  };
+  streak: number;
+  total_tasks: number;
+  accuracy: number;
 }
 
 export { type User, type UserStats };
