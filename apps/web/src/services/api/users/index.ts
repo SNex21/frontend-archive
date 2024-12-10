@@ -5,7 +5,7 @@ import { GetUserProps, UpdateUserProps } from "./types";
 import { UserStats } from "@/models/User";
 
 export const getUser = async ({ id, token }: GetUserProps): Promise<User> => {
-  const { data } = await apiClient.get<User>(`${API_ENDPOINTS.USER}/${id}`, {
+  const { data } = await apiClient.get<User>(`${API_ENDPOINTS.USER_DEFAULT}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
