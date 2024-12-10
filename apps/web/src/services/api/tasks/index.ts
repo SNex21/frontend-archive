@@ -15,8 +15,7 @@ export const getTasksTopics = async ({ token }: { token: string }): Promise<GetT
 };
 
 export const getTasks = async ({ token, ...params }: GetTasksReq): Promise<GetTasksRes> => {
-  const { data } = await apiClient.get<any>(`${API_ENDPOINTS.SESSION}`, {
-    params,
+  const { data } = await apiClient.post<any>(`${API_ENDPOINTS.SESSION}`, params, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
