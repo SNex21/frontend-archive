@@ -20,7 +20,7 @@ const UserSection: FC = () => {
       <div className={styles.info}>
         <h2 className={styles.info__heading}>{user.username}</h2>
         <p className={styles.info__desc}>
-          Регистрация: {dayjs(user.create_datetime, "DD.MM.YYYY hh:mm:ss").format("MMMM YYYY")}
+          Регистрация: {dayjs(user.create_datetime, "YYYY-MM-DD hh:mm:ss").format("MMMM YYYY")}
         </p>
       </div>
     </section>
