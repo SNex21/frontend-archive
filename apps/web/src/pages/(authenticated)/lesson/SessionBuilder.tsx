@@ -75,9 +75,9 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
       return regular;
     }
 
-    if (localWom) {
-      return localWom;
-    }
+    // if (localWom) {
+    //   return localWom;
+    // }
 
     return regular;
   }, [challenges.current, state, session.amount]);
