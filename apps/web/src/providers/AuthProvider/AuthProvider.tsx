@@ -33,7 +33,7 @@ const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
         telegramId: userQuery.data.telegramId,
         telegramUsername: initData?.user?.username,
         settings: userQuery.data.settings,
-        registrationDate: userQuery.data.registrationDate,
+        create_datetime: userQuery.data.create_datetime,
       });
     }
   }, [userQuery.data]);

@@ -3,7 +3,7 @@ interface User {
   username: string;
   telegramId?: number;
   avatarUrl?: string;
-  registrationDate: Date;
+  create_datetime: Date;
   settings: {
     notifications: boolean;
   };
