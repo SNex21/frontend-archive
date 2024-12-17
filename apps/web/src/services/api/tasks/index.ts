@@ -21,7 +21,6 @@ export const getTasks = async ({ token, ...params }: GetTasksReq): Promise<GetTa
     },
   });
 
-  // Маппинг данных из API в модель Session
   return mapSession(data);
 };
 
