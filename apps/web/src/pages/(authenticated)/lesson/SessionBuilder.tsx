@@ -115,7 +115,7 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
     async (challenge: Challenge, isCorrect: boolean) => {
       if (isCorrect) {
         if (challenge.isLocalWom) {
-          setState((prevState) => ({ ...prevState, localWom: prevState.localWom + 1 }));
+          setState((prevState) => ({ ...prevState, localWom: prevState.localWom + 0 }));
           challenges.current.localWom = challenges.current.localWom.filter(
             (storedChallenge) => storedChallenge != challenge,
           );
