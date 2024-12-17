@@ -115,23 +115,23 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
     async (challenge: Challenge, isCorrect: boolean) => {
       if (isCorrect) {
         if (challenge.isLocalWom) {
-          setState((prevState) => ({ ...prevState, localWom: prevState.localWom + 0 })); // исправить нахуй, я поменял на 0 с 1
+          setState((prevState) => ({ ...prevState, localWom: prevState.localWom + 1 }));
           challenges.current.localWom = challenges.current.localWom.filter(
             (storedChallenge) => storedChallenge != challenge,
           );
         }
         if (challenge.isHard) {
-          setState((prevState) => ({ ...prevState, hard: prevState.hard + 0 }));
+          setState((prevState) => ({ ...prevState, hard: prevState.hard + 1 }));
           challenges.current.hard = challenges.current.regular.filter(
             (storedChallenge) => storedChallenge != challenge,
           );
         }
         if (challenge.isWorkOnMistakes) {
-          setState((prevState) => ({ ...prevState, wom: prevState.wom + 0 }));
+          setState((prevState) => ({ ...prevState, wom: prevState.wom + 1 }));
           challenges.current.wom = challenges.current.wom.filter((storedChallenge) => storedChallenge != challenge);
         }
         if (!challenge.isLocalWom && !challenge.isHard && !challenge.isWorkOnMistakes) {
-          setState((prevState) => ({ ...prevState, regular: prevState.regular + 0 }));
+          setState((prevState) => ({ ...prevState, regular: prevState.regular + 1 }));
           challenges.current.regular = challenges.current.regular.filter(
             (storedChallenge) => storedChallenge != challenge,
           );
@@ -158,7 +158,7 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
         challenges.current.localWom.push({
           ...challenge,
           isLocalWom: true,
-          attempt: challenge.attempt ? challenge.attempt + 1 : 1,
+          attempt: challenge.attempt ? challenge.attempt : 1, //убрал challenge.attempt+1
         });
       }
 
