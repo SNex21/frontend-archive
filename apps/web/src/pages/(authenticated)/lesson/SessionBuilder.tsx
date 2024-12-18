@@ -17,7 +17,7 @@ const defaultState = {
 };
 
 const HARD_TO_SOLVE = 0;
-const WOM_TO_SOLVE = 10;
+const WOM_TO_SOLVE = 0;
 
 interface SessionBuilderProps {
   session: Session;
