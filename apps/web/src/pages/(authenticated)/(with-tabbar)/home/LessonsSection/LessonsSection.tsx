@@ -48,7 +48,7 @@ const LessonCards: FC = () => {
   );
 };
 
-const LessonCard: FC<Topic> = ({title, ege_number }) => {
+const LessonCard: FC<Topic> = ({id, title, ege_number }) => {
   return (
     <Haptic type="impact" value="medium" asChild>
       <Link to={`/lesson/topic/${id}`}>
