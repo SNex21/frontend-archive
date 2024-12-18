@@ -1,6 +1,5 @@
 import { FC } from "react";
-import styles from "./LessonSection.module.scss";
-import { Haptic } from "@/lib/twa/components/Haptic";
+import styles from "./Theory.module.scss";
 import cn from "classnames";
 import { useQuery } from "@tanstack/react-query";
 import { useCloudStorage } from "@/lib/twa/hooks";
@@ -8,12 +7,11 @@ import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
 import { Topic } from "@/models/Topic.ts";
 import { Skeleton } from "@repo/ui";
 import { getTasksTopics } from "@/services/api/tasks";
-import { Link } from "react-router-dom";
 
-const LessonsSection: FC = () => {
+const TheorySection: FC = () => {
   return (
     <section className={cn("wrapper", styles.section)}>
-      <h2 className={styles.section__heading}>По заданиям</h2>
+      <h2 className={styles.section__heading}>Подучим теорию?</h2>
       <LessonCards />
     </section>
   );
@@ -50,17 +48,13 @@ const LessonCards: FC = () => {
 
 const LessonCard: FC<Topic> = ({title, ege_number }) => {
   return (
-    <Haptic type="impact" value="medium" asChild>
-      <Link to={`/lesson/topic/${id}`}>
-        <div className={styles.card}>
-          <div className={styles.card__content}>
-            {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
-            <h3 className={styles.card__content__title}>{title}</h3>
-          </div>
-        </div>
-      </Link>
-    </Haptic>
+    <div className={styles.card}>
+      <div className={styles.card__content}>
+        {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
+        <h3 className={styles.card__content__title}>{title}</h3>
+      </div>
+    </div>
   );
 };
 
-export { LessonsSection };
+export { TheorySection };
