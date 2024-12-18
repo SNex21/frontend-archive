@@ -13,6 +13,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-3);
+    filter: blur(20px);
   }
   
   .card {
