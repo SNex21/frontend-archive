@@ -104,7 +104,7 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
 
   const updateStats = React.useCallback((isCorrect: boolean) => {
     setStats((prevStats) => ({
-      total: prevStats.total,
+      total: prevStats.total, // убрал тут +1 при условии (тип это робит +1, когда чел неверно ответил, тип мы уверены, что он захочет свои ошибки прорешать)
       completed: prevStats.completed + 1,
       correct: isCorrect ? prevStats.correct + 1 : prevStats.correct,
       index: prevStats.index,
