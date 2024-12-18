@@ -1,4 +1,4 @@
-export { TheorySection } from "./TheorySection";
+import { TheorySection } from "./TheorySection";
 import pageStyles from "../Page.module.scss";
 
 export default function TheoryPage() {
