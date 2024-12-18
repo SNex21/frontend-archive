@@ -66,7 +66,8 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
         return hard;
       }
 
-      if (!isEverMistaken && wom && state.wom < WOM_TO_SOLVE) {
+      // if (!isEverMistaken && wom && state.wom < WOM_TO_SOLVE) {
+      if (wom) {
         return wom;
       }
     }
