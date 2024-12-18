@@ -11,7 +11,7 @@ interface ChallengeScreenProps {
   next: (challenge: Challenge, isCorrect: boolean) => Promise<void>;
   updateStats: (isCorrect: boolean) => void;
 }
-
+  
 interface ChallengeState {
   submitted?: boolean;
   wrong?: boolean;

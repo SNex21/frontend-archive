@@ -37,7 +37,7 @@ const LessonHeader: React.FC<LessonHeaderProps> = ({ stats }) => {
     }
 
     const initial = 0.15 * progressBarRef.current.offsetWidth;
-    const solved = (stats.completed / stats.total) * 0.85 * progressBarRef.current.offsetWidth;
+    const solved = (stats.completed / stats.total) * progressBarRef.current.offsetWidth; // убрал умножение на 0.85
 
     return initial + solved;
   }, [stats, progressBarRef.current]);
