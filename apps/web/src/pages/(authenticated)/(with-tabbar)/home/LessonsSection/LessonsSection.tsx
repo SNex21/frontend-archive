@@ -20,6 +20,7 @@ const LessonsSection: FC = () => {
 };
 
 const LessonCards: FC = () => {
+  console.log(78787878788)
   const cloudStorage = useCloudStorage();
   const { data, isLoading } = useQuery({
     queryKey: ["topics"],

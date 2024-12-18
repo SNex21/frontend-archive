@@ -9,6 +9,7 @@ interface CoverScreenProps {
 }
 
 const CoverScreen: FC<CoverScreenProps> = ({ onButtonClick }) => {
+  console.log("я внутри!")
   return (
     <motion.div className={styles.cover} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
       <div className={styles.cover__content}>

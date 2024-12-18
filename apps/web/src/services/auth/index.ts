@@ -15,7 +15,9 @@ export const authTelegramMiniApp = async (responseData: AuthTelegramMiniAppReq) 
 };
 
 export async function login({ token, userId }: { token: string; userId: number }) {
+  console.log("save to ls 1")
   await saveAccessToken(token);
+  console.log("save to ls 2")
   await saveUserId(userId);
 }
 

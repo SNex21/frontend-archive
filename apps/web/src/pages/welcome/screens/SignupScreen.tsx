@@ -15,29 +15,32 @@ import { HuggingFaceEmoji } from "@repo/ui/emojis";
 import posthog from "posthog-js";
 
 const SignupScreen: FC = () => {
+  console.log(0)
   const [initDataUnsafe, initData] = useInitData();
   const navigate = useNavigate();
+  console.log(1)
 
   const [isFocused, setFocused] = useState(false);
-
+  console.log(2)
   const [username, setUsername] = useState<string>(initDataUnsafe?.user?.username ?? "");
+  console.log(3)
   const [status, setStatus] = useState<{
     success: boolean;
     error: null | string;
     loading: boolean;
   }>({ success: false, error: null, loading: false });
-
+  console.log(4)
   const cancelTokenRef = useRef<CancelTokenSource | null>(null);
-
+  console.log(5)
   const handleUsernameCheck = useCallback(
     debounce(async (name: string) => {
       if (cancelTokenRef.current) {
         cancelTokenRef.current.cancel("New request initiated");
       }
-
+      console.log(6)
       const newCancelToken = axios.CancelToken.source();
       cancelTokenRef.current = newCancelToken;
-
+      console.log(7)
       try {
         setStatus((prev) => ({ ...prev, loading: true }));
         const res = await checkUsername({
@@ -60,11 +63,13 @@ const SignupScreen: FC = () => {
     }, 1000),
     [],
   );
-
+  console.log(8)
   useEffect(() => {
     if (username) {
+      console.log(9)
       handleUsernameCheck(username);
     } else {
+      console.log(10)
       setStatus({ success: false, error: null, loading: false });
     }
 
@@ -74,11 +79,12 @@ const SignupScreen: FC = () => {
       }
     };
   }, [username, handleUsernameCheck]);
-
+  console.log(11)
   const handleLogin = useCallback(async () => {
     try {
+      console.log(12112121212)
       const res = await authTelegramMiniApp({
-        query: initData ?? "",
+        query: "query_id=AAGVCrdBAAAAAJUKt0HlUjAz&user=%7B%22id%22%3A1102514837%2C%22first_name%22%3A%22%D0%9C%D0%BE%D1%82%D1%8C%D0%BA%D0%B0%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22Matveggg%22%2C%22language_code%22%3A%22ru%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F_G1aRk2NawI5-sKQMUNS5rzjDu_hnTbUTZW0GRlLMnE.svg%22%7D&auth_date=1734452236&signature=s3SJktK6QN6uFx_m2gFgI0-svJZHDZ7ox0k9EtkXb2RgpFLKn5vnoT3hLe9YAMsSsZNCyf0PHJ03wWAz6wm6AQ&hash=09c04b31adf2e0bc453d315f4e88dbbd664be57b758fc784efb45b1525f38076",
         username,
         avatarUrl: "",
       });
