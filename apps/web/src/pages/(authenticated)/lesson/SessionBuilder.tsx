@@ -67,8 +67,9 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
       }
 
       // if (!isEverMistaken && wom && state.wom < WOM_TO_SOLVE) {
+      console.log('wuiiii1')
       if (wom) {
-        console.log('wuiiii')
+        console.log('wuiiii2')
         return wom;
       }
     }
