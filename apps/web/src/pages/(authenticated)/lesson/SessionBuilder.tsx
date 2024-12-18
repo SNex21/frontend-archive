@@ -119,7 +119,7 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
           challenges.current.localWom = challenges.current.localWom.filter(
             (storedChallenge) => storedChallenge != challenge,
           );
-        }=
+        }
         if (challenge.isHard) {
           setState((prevState) => ({ ...prevState, hard: prevState.hard + 1 }));
           challenges.current.hard = challenges.current.regular.filter(
