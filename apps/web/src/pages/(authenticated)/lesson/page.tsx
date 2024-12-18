@@ -33,7 +33,7 @@ export default function LessonPage() {
         topic_id: params.topicId ? Number(params.topicId) : undefined,
         isHard: params["*"] === "hard",
         // isWorkOnMistakes: params["*"] === "mistakes",
-        isWorkOnMistakes: true,
+        isWorkOnMistakes: false,
       }),
     refetchOnMount: false,
     refetchOnReconnect: false,
