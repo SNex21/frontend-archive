@@ -48,18 +48,14 @@ const LessonCards: FC = () => {
   );
 };
 
-const LessonCard: FC<Topic> = ({ id, title, ege_number }) => {
+const LessonCard: FC<Topic> = ({title, ege_number }) => {
   return (
-    <Haptic type="impact" value="medium" asChild>
-      <Link to={`/lesson/topic/${id}`}>
-        <div className={styles.card}>
-          <div className={styles.card__content}>
-            {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
-            <h3 className={styles.card__content__title}>{title}</h3>
-          </div>
-        </div>
-      </Link>
-    </Haptic>
+    <div className={styles.card}>
+      <div className={styles.card__content}>
+        {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
+        <h3 className={styles.card__content__title}>{title}</h3>
+      </div>
+    </div>
   );
 };
 // abuba
