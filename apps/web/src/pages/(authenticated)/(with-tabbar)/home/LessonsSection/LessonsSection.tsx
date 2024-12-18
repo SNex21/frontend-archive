@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styles from "./LessonSection.module.scss";
-import { Haptic } from "@/lib/twa/components/Haptic";
 import cn from "classnames";
 import { useQuery } from "@tanstack/react-query";
 import { useCloudStorage } from "@/lib/twa/hooks";
@@ -8,7 +7,6 @@ import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
 import { Topic } from "@/models/Topic.ts";
 import { Skeleton } from "@repo/ui";
 import { getTasksTopics } from "@/services/api/tasks";
-import { Link } from "react-router-dom";
 
 const LessonsSection: FC = () => {
   return (
