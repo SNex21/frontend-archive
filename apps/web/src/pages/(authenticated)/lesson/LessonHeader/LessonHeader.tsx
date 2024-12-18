@@ -38,8 +38,13 @@ const LessonHeader: React.FC<LessonHeaderProps> = ({ stats }) => {
 
     const initial = 0.15 * progressBarRef.current.offsetWidth;
     const solved = (stats.completed / stats.total) * 0.85 * progressBarRef.current.offsetWidth;
-
     return initial + solved;
+
+    // const initial = progressBarRef.current.offsetWidth;
+    // const solved = progressBarRef.current.offsetWidth*(1/stats.total);
+    // return initial + solved;
+
+    
   }, [stats, progressBarRef.current]);
 
   return (
