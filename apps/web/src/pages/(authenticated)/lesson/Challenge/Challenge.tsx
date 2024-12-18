@@ -25,7 +25,7 @@ const ChallengeScreen: FC<ChallengeScreenProps> = ({ challenge, updateStats, nex
       <Challenge challenge={challenge} updateStats={updateStats} next={next} />
     </ChallengeLayout>
   );
-};
+}
 
 function getChallenge(type: ChallengeType) {
   switch (type) {
@@ -41,6 +41,5 @@ function getChallenge(type: ChallengeType) {
       return GapFillChallenge;
   }
 }
-
 
 export { type ChallengeScreenProps, type ChallengeState, ChallengeScreen };

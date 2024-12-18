@@ -158,7 +158,7 @@ const SessionBuilder: React.FC<SessionBuilderProps> = ({ session, stats, setStat
         challenges.current.localWom.push({
           ...challenge,
           isLocalWom: true,
-          attempt: challenge.attempt ? challenge.attempt : 1, //убрал challenge.attempt+1
+          attempt: challenge.attempt ? challenge.attempt + 1 : 1,
         });
       }
 
