@@ -62,5 +62,5 @@ const LessonCard: FC<Topic> = ({ id, title, ege_number }) => {
     </Haptic>
   );
 };
-
+// abuba
 export { LessonsSection };
