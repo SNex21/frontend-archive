@@ -1,1 +1,0 @@
-export { TheorySection } from "./TheorySection";
