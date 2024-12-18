@@ -30,6 +30,8 @@ const LessonCards: FC = () => {
   if (isLoading || !data) {
     return (
       <div className={styles.cards}>
+        <div className={styles.overlayLine}></div>
+        <div className={styles.overlayLine}></div>
         {[...Array(6).keys()].map((i) => (
           <Skeleton key={i} style={{ height: "157px", borderRadius: "var(--rounded-2xl)" }} />
         ))}
@@ -39,6 +41,8 @@ const LessonCards: FC = () => {
 
   return (
     <div className={styles.cards}>
+      <div className={styles.overlayLine}></div>
+      <div className={styles.overlayLine}></div>
       {data.map((topic) => (
         <LessonCard key={topic.slug} {...topic} />
       ))}

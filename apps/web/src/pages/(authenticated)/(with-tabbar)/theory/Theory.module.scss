@@ -13,7 +13,29 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-3);
-    filter: blur(20px);
+    filter: blur(5px);
+    pointer-events: none;
+    position: relative;
+  }
+  
+  .overlayLine {
+    position: absolute; /* Абсолютное позиционирование поверх контента */
+    top: 50%; /* Вертикальное выравнивание */
+    left: 0; /* Линии растягиваются от левой границы */
+    width: 100%; /* Линии занимают всю ширину */
+    height: 2px; /* Толщина линии */
+    background-color: red; /* Цвет линии */
+    transform-origin: center; /* Центр поворота линии */
+    z-index: 10; /* Поверх основного содержимого */
+  
+    /* Поворот диагональных линий */
+    &:nth-child(1) {
+      transform: translateY(-50%) rotate(-45deg); /* Первая диагональ */
+    }
+  
+    &:nth-child(2) {
+      transform: translateY(-50%) rotate(45deg); /* Вторая диагональ */
+    }
   }
   
   .card {
