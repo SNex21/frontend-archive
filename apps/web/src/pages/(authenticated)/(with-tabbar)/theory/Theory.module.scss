@@ -13,14 +13,14 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-3);
-    filter: blur(5px);
+    filter: blur(3px);
     pointer-events: none;
     position: relative;
   }
   
   .overlayLine {
     position: absolute; /* Абсолютное позиционирование поверх контента */
-    top: 50%; /* Вертикальное выравнивание */
+    top: 100%; /* Вертикальное выравнивание */
     left: 0; /* Линии растягиваются от левой границы */
     width: 100%; /* Линии занимают всю ширину */
     height: 2px; /* Толщина линии */
