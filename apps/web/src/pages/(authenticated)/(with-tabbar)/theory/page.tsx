@@ -7,10 +7,10 @@ export default function TheoryPage() {
   return (
     <><div
       className={styles.container}
-      style={{ backgroundImage: 'Gradient.png' }}
+      style={{ backgroundImage: '/public/Gradient.png' }}
     >
       <img
-        src="Vector.png" 
+        src="frontend-archive/apps/web/public/Vector.png" 
         alt="Логотип"
         className={styles.logo} />
       <p className={styles.text}>
