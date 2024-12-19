@@ -62,9 +62,9 @@
     }
   }
   .container {
-    position: fixed; /* Фиксированное положение поверх всего */
-    top: 50%; /* Центрирование по вертикали */
-    left: 50%; /* Центрирование по горизонтали */
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
     transform: translate(-50%, -50%);
     z-index: 100; 
     display: flex;
@@ -72,7 +72,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 320px; /* Ширина элемента */
+    width: 320px; 
     padding: 20px;
     border-radius: 25px;
     background-size: cover;
