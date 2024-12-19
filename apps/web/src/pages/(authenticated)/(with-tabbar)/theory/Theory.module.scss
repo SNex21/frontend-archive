@@ -19,18 +19,17 @@
   }
   
   .overlayLine {
-    position: fixed; /* Фиксированное позиционирование для растяжения на всю страницу */
-    top: 0; /* Старт сверху */
-    left: 48%; /* Старт слева */
-    width: 4vw; /* Полная ширина окна */
-    height: 95vh; /* Полная высота окна */
-    z-index: 10; /* Поверх остального контента */
+    position: fixed; 
+    top: 0; 
+    left: 48%; 
+    width: 4vw; 
+    height: 95vh; 
+    z-index: 10; 
     pointer-events: none; 
     border-radius: 50px;
-    background-color: var(--ds-violet-700); /* Цвет линии */
-    transform-origin: center; /* Центр поворота */
+    background-color: var(--ds-violet-700); 
+    transform-origin: center; 
   
-    /* Поворот диагональных линий */
     &:nth-child(1) {
       transform: rotate(-30deg); /* Первая диагональ */
     }
@@ -82,6 +81,52 @@
         font-weight: 600;
         color: var(--ds-violet-700);
       }
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 320px; /* Настройте ширину */
+    padding: 20px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    width: 100px; /* Настройте размер логотипа */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .text {
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .highlight {
+    font-weight: bold;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
     }
   }
   
