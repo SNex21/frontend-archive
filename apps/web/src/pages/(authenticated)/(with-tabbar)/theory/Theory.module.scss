@@ -32,7 +32,7 @@
       position: absolute;
       top: 50%;
       left: 0;
-      width: 150%; /* Делаем линию шире, чтобы она точно пересекала элемент по диагонали */
+      width: 100%; /* Делаем линию шире, чтобы она точно пересекала элемент по диагонали */
       height: 5px; /* Толщина линии */
       background-color: var(--ds-violet-700); /* Цвет линии */
       transform-origin: center;
@@ -40,11 +40,11 @@
     }
   
     &:nth-child(1)::before {
-      transform: rotate(-45deg); /* Первая диагональная линия */
+      transform: rotate(-60deg); /* Первая диагональная линия */
     }
   
     &:nth-child(2)::before {
-      transform: rotate(45deg); /* Вторая диагональная линия */
+      transform: rotate(60deg); /* Вторая диагональная линия */
     }
   }
   
