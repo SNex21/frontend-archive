@@ -17,7 +17,7 @@ export default function TheoryPage() {
         Раздел <span className={styles.highlight}>Теория</span> находится в активной
         разработке команды Учибота. Следи за обновлениями в Telegram канале.
       </p>
-      <a href="LINK_TO_TELEGRAM_CHANNEL" target="_blank" rel="noopener noreferrer">
+      <a href="https://t.me/ege_uchibot" target="_blank" rel="noopener noreferrer">
         <button className={styles.button}>Перейти в канал</button>
       </a>
     </div><div className={pageStyles.main}>
