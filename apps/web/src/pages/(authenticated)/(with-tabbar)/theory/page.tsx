@@ -1,8 +1,8 @@
 import { TheorySection } from "./TheorySection";
 import pageStyles from "../Page.module.scss";
 import styles from "./Theory.module.scss";
-import Gradient from "../../../assets/fonts/images/Gradient.png";
-import Vector from "../../../assets/fonts/images/Vector.png";
+import Gradient from "../../../../assets/fonts/images/Gradient.png";
+import Vector from "../../../../assets/fonts/images/Vector.png";
 
 export default function TheoryPage() {
   return (
