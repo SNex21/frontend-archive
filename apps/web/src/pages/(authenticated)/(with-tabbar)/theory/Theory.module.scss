@@ -21,11 +21,11 @@
   .overlayLine {
     position: fixed; /* Фиксированное позиционирование для растяжения на всю страницу */
     top: 0; /* Старт сверху */
-    left: 45%; /* Старт слева */
+    left: 48%; /* Старт слева */
     width: 4vw; /* Полная ширина окна */
-    height: 100vh; /* Полная высота окна */
+    height: 95vh; /* Полная высота окна */
     z-index: 10; /* Поверх остального контента */
-    pointer-events: none; /* Линии не должны блокировать взаимодействие с другими элементами */
+    pointer-events: none; 
     border-radius: 50px;
     background-color: var(--ds-violet-700); /* Цвет линии */
     transform-origin: center; /* Центр поворота */
