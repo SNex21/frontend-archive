@@ -1,8 +1,8 @@
 import { TheorySection } from "./TheorySection";
 import pageStyles from "../Page.module.scss";
 import styles from "./Theory.module.scss";
-import Gradient from './assets/Gradient.png';
-import Vector from './assets/Vector.png';
+import Gradient from '/home/jacob/Документы/vscodes/frontend-archive/apps/web/src/assets/fonts/Gradient.png';
+import Vector from '/home/jacob/Документы/vscodes/frontend-archive/apps/web/src/assets/fonts/Vector.png';
 
 
 export default function TheoryPage() {
