@@ -20,7 +20,7 @@
   
   .overlayLine {
     position: absolute; /* Абсолютное позиционирование поверх контента */
-    top: 0; /* Вертикальное выравнивание */
+    top: 50%; /* Вертикальное выравнивание */
     left: 0; /* Линии растягиваются от левой границы */
     width: 100%; /* Линии занимают всю ширину */
     height: 5px; /* Толщина линии */
@@ -30,11 +30,11 @@
   
     /* Поворот диагональных линий */
     &:nth-child(1) {
-      transform: translateY(-50%) rotate(-45deg); /* Первая диагональ */
+      transform: translateY(-50%) rotate(-30deg); /* Первая диагональ */
     }
   
     &:nth-child(2) {
-      transform: translateY(-50%) rotate(45deg); /* Вторая диагональ */
+      transform: translateY(-50%) rotate(30deg); /* Вторая диагональ */
     }
   }
   
