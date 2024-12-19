@@ -1,16 +1,18 @@
 import { TheorySection } from "./TheorySection";
 import pageStyles from "../Page.module.scss";
 import styles from "./Theory.module.scss";
+import Gradient from './assets/Gradient.png';
+import Vector from './assets/Vector.png';
 
 
 export default function TheoryPage() {
   return (
     <><div
       className={styles.container}
-      style={{ backgroundImage: url('/Gradient.png') }}
+      style={{ backgroundImage: `url(${Gradient})` }}
     >
       <img
-        src="/Vector.png"
+        src={Vector}
         alt="Логотип"
         className={styles.logo} />
       <p className={styles.text}>
