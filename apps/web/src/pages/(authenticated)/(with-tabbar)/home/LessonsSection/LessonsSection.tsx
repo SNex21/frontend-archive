@@ -40,7 +40,7 @@ const LessonCards: FC = () => {
       </div>
     );
   }
-  
+
   const user = useUser();
 
   if (!user.subscription) {
@@ -77,7 +77,7 @@ const LessonCard: FC<Topic> = ({id, title, ege_number }) => {
   );
 };
 
-const LessonCardBlocked: FC<Topic> = ({id, title, ege_number }) => {
+const LessonCardBlocked: FC<Topic> = ({title, ege_number }) => {
   return (
     <Haptic type="impact" value="medium" asChild>
       <Link to={`/`}>
