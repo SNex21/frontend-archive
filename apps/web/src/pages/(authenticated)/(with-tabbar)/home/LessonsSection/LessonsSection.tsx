@@ -75,18 +75,16 @@ const LessonCard: FC<Topic> = ({id, title, ege_number }) => {
 const LessonCardBlocked: FC<Topic> = ({title, ege_number }) => {
   return (
     <Haptic type="impact" value="medium" asChild>
-      <Link to={`/`}>
-        <div className={styles.blocked_card}>
-          <div className={styles.blocked_card__content}>
-            {ege_number && <span className={styles.blocked_card__content__number}>№{ege_number}</span>}
-            <img
-              src={Blocked}
-              alt="блок"
-              className={styles.blocked_logo} />
-            <h3 className={styles.blocked_card__content__title}>{title}</h3>
-          </div>
+      <div className={styles.blocked_card}>
+        <div className={styles.blocked_card__content}>
+          {ege_number && <span className={styles.blocked_card__content__number}>№{ege_number}</span>}
+          <img
+            src={Blocked}
+            alt="блок"
+            className={styles.blocked_logo} />
+          <h3 className={styles.blocked_card__content__title}>{title}</h3>
         </div>
-      </Link>
+      </div>
     </Haptic>
   );
 };
