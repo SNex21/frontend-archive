@@ -23,7 +23,7 @@ const LessonComplete: React.FC<LessonCompleteProps> = ({ startDate, correctPerce
     <motion.div
       className={styles.complete}
       initial={{ opacity: 0, transform: "translateX(100%)" }}
-      animate={{ opacity: 1, transform: "translateX(0)", transition: { delay: 0.6, duration: 0.4, ease: "ease" } }}
+      animate={{ opacity: 1, transform: "translateX(0)", transition: { delay: 0.2, duration: 0.4, ease: "ease" } }}
       exit={{ opacity: 0, transform: "translateX(0)" }}
     >
       <div className={styles.complete__content}>
