@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import styles from "./SubscriptionSection.module.scss";
+import cn from "classnames";
 // import { useUser } from "@/providers/AuthProvider/AuthProvider";
 
 const SubscriptionSection: FC = () => {
