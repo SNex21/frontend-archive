@@ -10,7 +10,7 @@ import { Skeleton } from "@repo/ui";
 import { getTasksTopics } from "@/services/api/tasks";
 import { Link } from "react-router-dom";
 import { useUser } from "@/providers/AuthProvider/AuthProvider";
-import Vector from "../../../../../assets/fonts/images/Vector.png";
+import Blocked from "../../../../../assets/fonts/images/Blocked.png";
 
 
 const LessonsSection: FC = () => {
@@ -86,9 +86,9 @@ const LessonCardBlocked: FC<Topic> = ({title, ege_number }) => {
           <div className={styles.blocked_card__content}>
             {ege_number && <span className={styles.blocked_card__content__number}>№{ege_number}</span>}
             <img
-              src={Vector}
-              alt="Логотип"
-              className={styles.logo} />
+              src={Blocked}
+              alt="блок"
+              className={styles.blocked_logo} />
             <h3 className={styles.blocked_card__content__title}>{title}</h3>
           </div>
         </div>
