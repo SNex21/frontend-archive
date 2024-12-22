@@ -23,7 +23,7 @@ const SubscriptionSection: FC = () => {
   const user = useUser();
   const cloudStorage = useCloudStorage();
   const { subscription, isLoading } = useQuery({
-    queryKey: ["stats"],
+    queryKey: ["subscription"],
     queryFn: async () =>
       getSubscriptionInfo({
         token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
