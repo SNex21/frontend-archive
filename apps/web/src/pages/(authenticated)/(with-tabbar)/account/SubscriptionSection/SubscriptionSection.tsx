@@ -13,7 +13,5 @@ const SubscriptionSection: FC = () => {
       </section>
       )
     };
-  );
-};
 
 export { SubscriptionSection };
