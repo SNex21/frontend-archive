@@ -44,20 +44,14 @@ const LessonCards: FC = () => {
 
   const user = useUser();
 
-  if (!user.subscription) {
-    return (
-      <div className={styles.cards}>
-        {data.map((topic) => (
-          <LessonCardBlocked key={topic.slug} {...topic} />
-        ))}
-      </div>
-    );
-  }
-
   return (
     <div className={styles.cards}>
       {data.map((topic) => (
-        <LessonCard key={topic.slug} {...topic} />
+        topic.private && !user.subscription ? (
+          <LessonCardBlocked key={topic.slug} {...topic} />
+        ) : (
+          <LessonCard key={topic.slug} {...topic} />
+        )
       ))}
     </div>
   );
