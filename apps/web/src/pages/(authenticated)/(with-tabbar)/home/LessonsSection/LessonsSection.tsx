@@ -85,7 +85,6 @@ const LessonCardBlocked: FC<Topic> = ({title, ege_number }) => {
           <div className={styles.card__content}>
             {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
             <h3 className={styles.card__content__title}>{title}</h3>
-            <h3>хуй тебе, купи подписку</h3>
           </div>
         </div>
       </Link>
