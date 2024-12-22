@@ -85,10 +85,14 @@ const LessonCardBlocked: FC<Topic> = ({title, ege_number }) => {
         <div className={styles.blocked_card}>
           <div className={styles.blocked_card__content}>
             {ege_number && <span className={styles.blocked_card__content__number}>№{ege_number}</span>}
+            <div
+              className={styles.container}
+            >
             <img
               src={Vector}
               alt="Логотип"
               className={styles.logo} />
+              </div>
             <h3 className={styles.blocked_card__content__title}>{title}</h3>
           </div>
         </div>
