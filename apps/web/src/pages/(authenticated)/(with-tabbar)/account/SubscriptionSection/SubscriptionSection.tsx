@@ -10,6 +10,8 @@ import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
 import { useQuery } from "@tanstack/react-query";
 import { getSubscriptionInfo } from "@/services/api/subscriptions";
 
+import { Skeleton } from "@repo/ui";
+
 
 interface SubscriptionCardProps {
   title: string;
@@ -23,7 +25,7 @@ const SubscriptionSection: FC = () => {
   const user = useUser();
   const cloudStorage = useCloudStorage();
   const { subscription, isLoading } = useQuery({
-    queryKey: ["subscription"],
+    queryKey: ["data.subscription"],
     queryFn: async () =>
       getSubscriptionInfo({
         token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
