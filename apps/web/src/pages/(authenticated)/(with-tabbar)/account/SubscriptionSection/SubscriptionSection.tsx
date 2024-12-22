@@ -24,14 +24,14 @@ interface SubscriptionCardProps {
 const SubscriptionSection: FC = () => {
   const user = useUser();
   const cloudStorage = useCloudStorage();
-  const { subscription, isLoading } = useQuery({
-    queryKey: ["data.subscription"],
+  const { data, isLoading } = useQuery({
+    queryKey: ["subscription"],
     queryFn: async () =>
       getSubscriptionInfo({
         token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
       }),
   });
-  if (isLoading || !subscription) {
+  if (isLoading || !data.subscription) {
     return <SubscriptionSectionLoading />;
   }
   return (
@@ -46,7 +46,7 @@ const SubscriptionSection: FC = () => {
         ) : (
           <SubscriptionCard
           title="Ты самый лучший"
-          description={subscription.plan.type}
+          description={data.subscription.plan.type}
           href={"/"}
         />
         )}
