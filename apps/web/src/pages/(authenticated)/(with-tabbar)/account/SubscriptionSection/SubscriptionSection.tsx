@@ -3,7 +3,7 @@ import { Haptic } from "@/lib/twa/components/Haptic";
 import { Link } from "react-router-dom";
 import styles from "./SubscriptionSection.module.scss";
 import cn from "classnames";
-// import { useUser } from "@/providers/AuthProvider/AuthProvider";
+import { useUser } from "@/providers/AuthProvider/AuthProvider";
 
 interface SubscriptionCardProps {
   title: string;
@@ -13,15 +13,23 @@ interface SubscriptionCardProps {
 }
 
 const SubscriptionSection: FC = () => {
-  // const user = useUser();
+  const user = useUser();
   return (
       <section className={cn("wrapper", styles.section)}>
         <h2 className={styles.section__heading}>Подписка</h2>
-        <SubscriptionCard
-          title="Тут короче про твою подписку бла бла бла"
-          description="купи по братски"
+        {!user.subscription ? (
+          <SubscriptionCard
+          title="У тебя нет подписки"
+          description="ты лох, купи ее"
           href={"/"}
         />
+        ) : (
+          <SubscriptionCard
+          title="Ты самый лучший"
+          description="У тебя есть подпсика"
+          href={"/"}
+        />
+        )}
       </section>
       )
     };
