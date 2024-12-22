@@ -4,13 +4,13 @@ interface User {
   telegramId?: number;
   avatarUrl?: string;
   create_datetime: Date;
-  subscription: Subscription | null;
+  subscription: SubscriptionInf | null;
   settings: {
     notifications: boolean;
   };
 }
 
-interface Subscription {
+interface SubscriptionInf {
   start_date: string;
   end_date: string;
   plan: number;

@@ -3,7 +3,13 @@ import { Haptic } from "@/lib/twa/components/Haptic";
 import { Link } from "react-router-dom";
 import styles from "./SubscriptionSection.module.scss";
 import cn from "classnames";
+
 import { useUser } from "@/providers/AuthProvider/AuthProvider";
+import { useCloudStorage } from "@/lib/twa/hooks";
+import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
+import { useQuery } from "@tanstack/react-query";
+import { getSubscriptionInfo } from "@/services/api/subscriptions";
+
 
 interface SubscriptionCardProps {
   title: string;
@@ -12,8 +18,20 @@ interface SubscriptionCardProps {
   href?: string;
 }
 
+
 const SubscriptionSection: FC = () => {
   const user = useUser();
+  const cloudStorage = useCloudStorage();
+  const { subscription, isLoading } = useQuery({
+    queryKey: ["stats"],
+    queryFn: async () =>
+      getSubscriptionInfo({
+        token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
+      }),
+  });
+  if (isLoading || !subscription) {
+    return <SubscriptionSectionLoading />;
+  }
   return (
       <section className={cn("wrapper", styles.section)}>
         <h2 className={styles.section__heading}>Подписка</h2>
@@ -26,7 +44,7 @@ const SubscriptionSection: FC = () => {
         ) : (
           <SubscriptionCard
           title="Ты самый лучший"
-          description="У тебя есть подпсика"
+          description={subscription.plan.type}
           href={"/"}
         />
         )}
@@ -52,6 +70,21 @@ const SubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, isSm 
     </Haptic>
   );
 };
-    
+
+const SubscriptionSectionLoading = () => {
+  return (
+    <section className="wrapper">
+      <div className={styles.cards}>
+        <Skeleton
+          style={{
+            height: "65px",
+            borderRadius: "var(--rounded-2xl)",
+            gridColumn: "span 2",
+          }}
+        />
+      </div>
+    </section>
+  );
+};
 
 export { SubscriptionSection };
