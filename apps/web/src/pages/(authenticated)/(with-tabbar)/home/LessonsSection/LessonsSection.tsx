@@ -10,7 +10,7 @@ import { Skeleton } from "@repo/ui";
 import { getTasksTopics } from "@/services/api/tasks";
 import { Link } from "react-router-dom";
 import { useUser } from "@/providers/AuthProvider/AuthProvider";
-import Vector from "../../../../assets/fonts/images/Vector.png";
+import Vector from "../../../../../assets/fonts/images/Vector.png";
 
 
 const LessonsSection: FC = () => {
