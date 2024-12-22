@@ -81,7 +81,7 @@ const LessonCardBlocked: FC<Topic> = ({title, ege_number }) => {
   return (
     <Haptic type="impact" value="medium" asChild>
       <Link to={`/`}>
-        <div className={styles.card}>
+        <div className={styles.blocked_card}>
           <div className={styles.card__content}>
             {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
             <h3 className={styles.card__content__title}>{title}</h3>
