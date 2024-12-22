@@ -1,5 +1,6 @@
 import { FC } from "react";
-
+import { Haptic } from "@/lib/twa/components/Haptic";
+import { Link } from "react-router-dom";
 import styles from "./SubscriptionSection.module.scss";
 import cn from "classnames";
 // import { useUser } from "@/providers/AuthProvider/AuthProvider";
@@ -7,6 +8,7 @@ import cn from "classnames";
 interface SubscriptionCardProps {
   title: string;
   description?: string;
+  isSm?: boolean;
   href?: string;
 }
 
