@@ -9,6 +9,8 @@ import { Topic } from "@/models/Topic.ts";
 import { Skeleton } from "@repo/ui";
 import { getTasksTopics } from "@/services/api/tasks";
 import { Link } from "react-router-dom";
+import { useUser } from "@/providers/AuthProvider/AuthProvider";
+
 
 const LessonsSection: FC = () => {
   return (
@@ -38,6 +40,18 @@ const LessonCards: FC = () => {
       </div>
     );
   }
+  
+  const user = useUser();
+
+  if (!user.subscription) {
+    return (
+      <div className={styles.cards}>
+        {data.map((topic) => (
+          <LessonCardBlocked key={topic.slug} {...topic} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className={styles.cards}>
@@ -56,6 +70,22 @@ const LessonCard: FC<Topic> = ({id, title, ege_number }) => {
           <div className={styles.card__content}>
             {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
             <h3 className={styles.card__content__title}>{title}</h3>
+          </div>
+        </div>
+      </Link>
+    </Haptic>
+  );
+};
+
+const LessonCardBlocked: FC<Topic> = ({id, title, ege_number }) => {
+  return (
+    <Haptic type="impact" value="medium" asChild>
+      <Link to={`/`}>
+        <div className={styles.card}>
+          <div className={styles.card__content}>
+            {ege_number && <span className={styles.card__content__number}>№{ege_number}</span>}
+            <h3 className={styles.card__content__title}>{title}</h3>
+            <h3>хуй тебе, купи подписку</h3>
           </div>
         </div>
       </Link>
