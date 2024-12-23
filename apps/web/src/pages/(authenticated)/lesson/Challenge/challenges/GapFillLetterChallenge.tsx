@@ -81,5 +81,6 @@ function formatPrompt(prompt, GapFillComponent) {
       <h3>{parts[1] && <span>{parts[1].trim()}</span>}</h3>
     </>
   );
+}
 
 export { GapFillLetterChallenge };
