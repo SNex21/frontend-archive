@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ChallengeScreenProps, ChallengeState } from "@/pages/(authenticated)/lesson/Challenge/Challenge.tsx";
 import { ChallengeSubmit } from "@/pages/(authenticated)/lesson/Challenge/layout/ChallengeSubmit.tsx";
 import { ChallengeHeading } from "@/pages/(authenticated)/lesson/Challenge/layout/ChallengeHeading.tsx";
@@ -69,7 +69,7 @@ const GapFillLetterChallenge: React.FC<ChallengeScreenProps> = ({ challenge, upd
   );
 };
 
-function formatPrompt(prompt, GapFillComponent) {
+function formatPrompt(prompt: string, GapFillComponent: ReactNode): ReactNode {
   // Разбиваем строку по маркеру {task_text}
   const parts = prompt.split('{task_text}');
 
