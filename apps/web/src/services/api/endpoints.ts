@@ -10,3 +10,4 @@ const API_ENDPOINTS = {
 };
 
 export { API_ENDPOINTS };
+
