@@ -36,15 +36,17 @@ const GapFillLetterChallenge: React.FC<ChallengeScreenProps> = ({ challenge, upd
     <>
       <ChallengeHeading challenge={challenge}>Заполни пропуск</ChallengeHeading>
       <ChallengeMain>
-        <h3>привет привет</h3>
-        <GapFillLetterTokens
-          attempt={challenge.attempt}
-          challengeId={challenge.id}
-          currentChoice={choice}
-          displayTokens={challenge.displayTokens}
-          setChoice={setChoice}
-          state={state}
-        />
+      {formatPrompt(
+          challenge.prompt,
+          <GapFillLetterTokens
+            attempt={challenge.attempt}
+            challengeId={challenge.id}
+            currentChoice={choice}
+            displayTokens={challenge.displayTokens}
+            setChoice={setChoice}
+            state={state}
+          />
+        )}
         <ChoicesLetter
           attempt={challenge.attempt}
           challengeId={challenge.id}
@@ -66,5 +68,18 @@ const GapFillLetterChallenge: React.FC<ChallengeScreenProps> = ({ challenge, upd
     </>
   );
 };
+
+function formatPrompt(prompt, GapFillComponent) {
+  // Разбиваем строку по маркеру {task_text}
+  const parts = prompt.split('{task_text}');
+
+  // Возвращаем отформатированный JSX
+  return (
+    <>
+      <h3>{parts[0] && <span>{parts[0].trim()}</span>}</h3>
+      {GapFillComponent}
+      <h3>{parts[1] && <span>{parts[1].trim()}</span>}</h3>
+    </>
+  );
 
 export { GapFillLetterChallenge };
