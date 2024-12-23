@@ -61,8 +61,7 @@ const SubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, isSm 
           <h3
             className={cn(styles.card__content__title, {
               [styles.card__content__title_sm!]: isSm,
-            })}
-          >
+            })}>
             {title}
           </h3>
           {description && <p className={styles.card__content__description}>{description}</p>}
@@ -78,7 +77,8 @@ const SubscriptionSectionLoading = () => {
       <div className={styles.cards}>
         <Skeleton
           style={{
-            height: "65px",
+            height: "100%",
+            min-width: "58px",
             borderRadius: "var(--rounded-2xl)",
             gridColumn: "span 2",
           }}
