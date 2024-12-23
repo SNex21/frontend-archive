@@ -36,6 +36,7 @@ const GapFillLetterChallenge: React.FC<ChallengeScreenProps> = ({ challenge, upd
     <>
       <ChallengeHeading challenge={challenge}>Заполни пропуск</ChallengeHeading>
       <ChallengeMain>
+        <h3>привет привет</h3>
         <GapFillLetterTokens
           attempt={challenge.attempt}
           challengeId={challenge.id}
