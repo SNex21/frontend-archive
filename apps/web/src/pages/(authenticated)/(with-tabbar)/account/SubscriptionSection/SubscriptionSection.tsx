@@ -47,7 +47,7 @@ const SubscriptionSection: FC = () => {
         ) : (
           <SubscriptionCard
           title="Ты самый лучший"
-          description={subscription.plan.type}
+          description={subscription.type}
           href={"/"}
         />
         )}
