@@ -6,7 +6,7 @@
 
 .section__heading {
   align-self: flex-start; /* Выравнивание по левому краю внутри flex-контейнера */
-  margin: var(--spacing-3) 0; /* Отступ сверху и снизу */
+  margin: 10px 0; /* Отступ сверху и снизу */
   font-size: 24px; /* Пример изменения размера текста */
   font-weight: bold; /* Жирный текст */
 }
