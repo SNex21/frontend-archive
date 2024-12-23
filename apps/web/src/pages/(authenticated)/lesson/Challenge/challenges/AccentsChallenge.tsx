@@ -40,13 +40,16 @@ const AccentsChallenge: React.FC<ChallengeScreenProps> = ({ challenge, updateSta
       </>
     );
   }, [challenge.choices]);
-
+  const prompt = challenge.prompt ?? '';
   return (
     <>
       <ChallengeHeading challenge={challenge}>Выбери букву под ударением</ChallengeHeading>
       <ChallengeMain>
-        <ChoicesAccent choices={challenge.choices} currentChoice={choice} setChoice={setChoice} state={state} />
-      </ChallengeMain>
+      {formatPrompt(
+        prompt,
+        <ChoicesAccent choices={challenge.choices} currentChoice={choice} setChoice={setChoice} state={state} />,
+      )}
+        </ChallengeMain>
       <ChallengeSubmit
         onSubmit={onSubmit}
         challenge={challenge}
@@ -59,5 +62,19 @@ const AccentsChallenge: React.FC<ChallengeScreenProps> = ({ challenge, updateSta
     </>
   );
 };
+
+function formatPrompt(prompt: string, GapFillComponent: ReactNode): ReactNode {
+  // Разбиваем строку по маркеру {task_text}
+  const parts = prompt.split('{task_text}');
+
+  // Возвращаем отформатированный JSX
+  return (
+    <>
+      <h3>{parts[0] && <span>{parts[0].trim()}</span>}</h3>
+      {GapFillComponent}
+      <h3>{parts[1] && <span>{parts[1].trim()}</span>}</h3>
+    </>
+  );
+}
 
 export { AccentsChallenge };
