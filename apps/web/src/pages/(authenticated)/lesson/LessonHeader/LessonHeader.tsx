@@ -104,7 +104,7 @@ const LessonHeader: React.FC<LessonHeaderProps> = ({ stats }) => {
 
         <div className={styles.content__progress} ref={progressBarRef}>
           <motion.div className={styles.content__progress__line} animate={{ width: `${progress}px` }}>
-            <span>{stats.index}</span>
+            <span>{stats.index}/{stats.total}</span>
           </motion.div>
         </div>
         <div className={styles.content__empty} />
