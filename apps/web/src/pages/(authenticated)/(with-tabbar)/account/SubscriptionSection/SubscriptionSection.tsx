@@ -25,7 +25,7 @@ interface SubscriptionCardProps {
 const SubscriptionSection: FC = () => {
   const user = useUser();
   const cloudStorage = useCloudStorage();
-  const { subscription, isLoading } = useQuery<Subscription>({
+  const { data: subscription, isLoading } = useQuery<Subscription>({
     queryKey: ["subscription"],
     queryFn: async () =>
       getSubscriptionInfo({
