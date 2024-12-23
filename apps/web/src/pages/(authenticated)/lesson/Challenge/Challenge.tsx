@@ -19,7 +19,7 @@ interface ChallengeState {
 
 const ChallengeScreen: FC<ChallengeScreenProps> = ({ challenge, updateStats, next }) => {
   const Challenge = getChallenge(challenge.type);
-1]
+
   return (
     <ChallengeLayout>
       <Challenge challenge={challenge} updateStats={updateStats} next={next} />
