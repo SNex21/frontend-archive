@@ -33,7 +33,7 @@ const SubscriptionSection: FC = () => {
   if (isLoading || !subscription) {
     return <SubscriptionSectionLoading />;
   }
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     const [year, month, day] = dateString.split("-"); // Разбиваем строку на компоненты
     return `${day}.${month}.${year}`; // Собираем в нужном формате
   };
