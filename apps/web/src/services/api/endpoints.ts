@@ -6,7 +6,7 @@ const API_ENDPOINTS = {
   STATS: "/stats/",
   SESSION: "/tasks/session/",
   GET_TOPICS: "/tasks/topics/",
-  GET_SUBSCRIPTION_INFO: "/payment/subscription/",
+  GET_SUBSCRIPTION_INFO: "/payment/subscription",
 };
 
 export { API_ENDPOINTS };
