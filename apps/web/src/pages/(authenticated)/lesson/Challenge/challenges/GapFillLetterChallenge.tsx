@@ -31,13 +31,14 @@ const GapFillLetterChallenge: React.FC<ChallengeScreenProps> = ({ challenge, upd
   const correctChoice = React.useMemo(() => {
     return <>{challenge.displayTokens?.map((token) => token.text)}</>;
   }, [challenge.displayTokens]);
-
+  const prompt = challenge.prompt ?? '';
   return (
     <>
       <ChallengeHeading challenge={challenge}>Заполни пропуск</ChallengeHeading>
       <ChallengeMain>
+      
       {formatPrompt(
-          challenge.prompt,
+          prompt,
           <GapFillLetterTokens
             attempt={challenge.attempt}
             challengeId={challenge.id}
