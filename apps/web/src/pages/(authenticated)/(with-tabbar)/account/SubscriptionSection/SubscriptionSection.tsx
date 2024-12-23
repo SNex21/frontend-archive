@@ -77,8 +77,7 @@ const SubscriptionSectionLoading = () => {
       <div className={styles.cards}>
         <Skeleton
           style={{
-            height: "100%",
-            min-width: "58px",
+            height: "65px",
             borderRadius: "var(--rounded-2xl)",
             gridColumn: "span 2",
           }}
