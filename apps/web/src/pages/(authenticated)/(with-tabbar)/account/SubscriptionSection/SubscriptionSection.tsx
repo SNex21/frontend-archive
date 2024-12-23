@@ -9,8 +9,6 @@ import { useCloudStorage } from "@/lib/twa/hooks";
 import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
 import { useQuery } from "@tanstack/react-query";
 import { getSubscriptionInfo } from "@/services/api/subscriptions";
-import { Subscription } from "@/models";
-
 import { Skeleton } from "@repo/ui";
 
 
