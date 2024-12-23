@@ -33,19 +33,23 @@ const SubscriptionSection: FC = () => {
   if (isLoading || !subscription) {
     return <SubscriptionSectionLoading />;
   }
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split("-"); // Разбиваем строку на компоненты
+    return `${day}.${month}.${year}`; // Собираем в нужном формате
+  };
   return (
       <section className={cn("wrapper", styles.section)}>
         <h2 className={styles.section__heading}>Подписка</h2>
         {!user.subscription ? (
           <SubscriptionCard
-          title="У тебя нет подписки"
-          description="ты лох, купи ее"
+          title="У тебя пока нет подписки"
+          description="Открывай доступ ко всем заданиям с подпиской!"
           href={"/"}
         />
         ) : (
           <SubscriptionCard
-          title="Ты самый лучший"
-          description={subscription.type}
+          title={`Подписка ${subscription.plan.title}`}
+          description={`Действует до ${formatDate(subscription.end_date)}`}
           href={"/"}
         />
         )}
