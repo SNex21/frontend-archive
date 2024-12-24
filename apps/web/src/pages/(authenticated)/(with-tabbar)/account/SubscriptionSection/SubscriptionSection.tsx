@@ -44,7 +44,7 @@ const SubscriptionSection: FC = () => {
           <SubscriptionCard
           title="У тебя пока нет подписки"
           description="Открывай доступ ко всем заданиям с подпиской!"
-          href={"/"}
+          href={"/"}с
         />
         ) : (
           <SubscriptionCard
