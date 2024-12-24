@@ -61,7 +61,7 @@ const router = createBrowserRouter(
           <Route path="/lesson/topic/:topicId/*" element={<LessonPage />} />
         </Route>
 
-        <Route path="/settings" element={<SubscriptionPage />} />
+        <Route path="/subscription" element={<SubscriptionPage />} />
         <Route path="/settings" element={<SettingsPage />} />
       </Route>
 

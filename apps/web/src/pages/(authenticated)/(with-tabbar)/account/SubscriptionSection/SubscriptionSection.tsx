@@ -50,7 +50,7 @@ const SubscriptionSection: FC = () => {
           <SubscriptionCard
           title={`Подписка ${subscription.plan.title}`}
           description={`Действует до ${formatDate(subscription.end_date)}`}
-          href={"/"}
+          href={"/subscription"}
         />
         )}
       </section>
