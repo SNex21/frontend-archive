@@ -19,7 +19,6 @@ interface SubscriptionCardProps {
   href?: string;
 }
 
-
 const SubscriptionSection: FC = () => {
   const user = useUser();
   const cloudStorage = useCloudStorage();
