@@ -13,12 +13,21 @@ import { useQuery } from "@tanstack/react-query";
 import { getSubscriptionInfo } from "@/services/api/subscriptions";
 import { Skeleton } from "@repo/ui";
 
-interface SubscriptionCardProps {
+interface WithSubscriptionCardProps {
     title: string;
     description?: string;
+    price?: string;
     isSm?: boolean;
     href?: string;
   }
+
+interface NoSubscriptionCardProps {
+    title: string;
+    description?: string;
+    price?: string;
+    isSm?: boolean;
+    href?: string;
+}
 
 export default function SubscriptionPage() {
   const navigate = useNavigate();
@@ -66,7 +75,7 @@ export default function SubscriptionPage() {
     )
   };
 
-const WithSubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, price,  isSm = false, href = "" }) => {
+const WithSubscriptionCard: FC<WithSubscriptionCardProps> = ({ title, description, price,  isSm = false, href = "" }) => {
 return (
     <Haptic type="impact" value="medium" asChild>
     <Link to={href} className={styles.card}>
@@ -85,7 +94,7 @@ return (
 );
 };
 
-const NoSubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, isSm = false, href = "" }) => {
+const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, isSm = false, href = "" }) => {
     return (
         <Haptic type="impact" value="medium" asChild>
         <Link to={href} className={styles.card}>
