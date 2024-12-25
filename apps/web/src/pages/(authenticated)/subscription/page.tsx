@@ -3,6 +3,8 @@ import { Haptic } from "@/lib/twa/components/Haptic";
 import { Link } from "react-router-dom";
 import styles from "./Subscribe.module.scss";
 import cn from "classnames";
+import { BackButton } from "@/lib/twa/components/BackButton";
+import { useNavigate } from "react-router-dom";
 
 import { useUser } from "@/providers/AuthProvider/AuthProvider";
 import { useCloudStorage } from "@/lib/twa/hooks";
@@ -19,8 +21,10 @@ interface SubscriptionCardProps {
   }
 
 export default function SubscriptionPage() {
+  const navigate = useNavigate();
   const user = useUser();
   const cloudStorage = useCloudStorage();
+
   const { data: subscription, isLoading } = useQuery({
     queryKey: ["subscription"],
     queryFn: async () =>
@@ -28,27 +32,32 @@ export default function SubscriptionPage() {
         token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
       }),
   });
+
   const formatDate = (dateString: string): string => {
     const [year, month, day] = dateString.split("-"); // Разбиваем строку на компоненты
     return `${day}.${month}.${year}`; // Собираем в нужном формате
   };
+
   if (isLoading || !subscription) {
     return <SubscriptionSectionLoading />;
   }
 
   return (
+    <div className="page">Settings</div>
+    <BackButton onClick={() => navigate("/account")} />
     <section className={cn("wrapper", styles.section)}>
       <h2 className={styles.section__heading}>Подписка</h2>
       {!user.subscription ? (
-        <SubscriptionCard
+        <NoSubscriptionCard
         title="У тебя пока нет подписки"
         description="Открывай доступ ко всем заданиям с подпиской!"
         href={"/"}
       />
       ) : (
-        <SubscriptionCard
+        <WithSubscriptionCard
         title={`Подписка ${subscription.plan.title}`}
         description={`Действует до ${formatDate(subscription.end_date)}`}
+        price={`${subscription.price} руб.`}
         href={"/"}
       />
       )}
@@ -56,7 +65,7 @@ export default function SubscriptionPage() {
     )
   };
 
-const SubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, isSm = false, href = "" }) => {
+const WithSubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, price,  isSm = false, href = "" }) => {
 return (
     <Haptic type="impact" value="medium" asChild>
     <Link to={href} className={styles.card}>
@@ -73,6 +82,24 @@ return (
     </Haptic>
 );
 };
+
+const NoSubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, isSm = false, href = "" }) => {
+    return (
+        <Haptic type="impact" value="medium" asChild>
+        <Link to={href} className={styles.card}>
+            <div className={styles.card__content}>
+            <h3
+                className={cn(styles.card__content__title, {
+                [styles.card__content__title_sm!]: isSm,
+                })}>
+                {title}
+            </h3>
+            {description && <p className={styles.card__content__description}>{description}</p>}
+            </div>
+        </Link>
+        </Haptic>
+    );
+    };
 
 const SubscriptionSectionLoading = () => {
     return (
