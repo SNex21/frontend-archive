@@ -78,6 +78,7 @@ return (
             {title}
         </h3>
         {description && <p className={styles.card__content__description}>{description}</p>}
+        {price}
         </div>
     </Link>
     </Haptic>
