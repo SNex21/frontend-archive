@@ -43,24 +43,26 @@ export default function SubscriptionPage() {
   }
 
   return (
-    <BackButton onClick={() => navigate("/account")} />
-    <section className={cn("wrapper", styles.section)}>
-      <h2 className={styles.section__heading}>Подписка</h2>
-      {!user.subscription ? (
-        <NoSubscriptionCard
-        title="У тебя пока нет подписки"
-        description="Открывай доступ ко всем заданиям с подпиской!"
-        href={"/"}
-      />
-      ) : (
-        <WithSubscriptionCard
-        title={`Подписка ${subscription.plan.title}`}
-        description={`Действует до ${formatDate(subscription.end_date)}`}
-        price={`${subscription.price} руб.`}
-        href={"/"}
-      />
-      )}
-    </section>
+    <div>
+        <BackButton onClick={() => navigate("/account")} />
+        <section className={cn("wrapper", styles.section)}>
+        <h2 className={styles.section__heading}>Подписка</h2>
+        {!user.subscription ? (
+            <NoSubscriptionCard
+            title="У тебя пока нет подписки"
+            description="Открывай доступ ко всем заданиям с подпиской!"
+            href={"/"}
+        />
+        ) : (
+            <WithSubscriptionCard
+            title={`Подписка ${subscription.plan.title}`}
+            description={`Действует до ${formatDate(subscription.end_date)}`}
+            price={`${subscription.price} руб.`}
+            href={"/"}
+        />
+        )}
+        </section>
+    </div>
     )
   };
 
