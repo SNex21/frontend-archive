@@ -24,7 +24,6 @@ interface WithSubscriptionCardProps {
 interface NoSubscriptionCardProps {
     title: string;
     description?: string;
-    price?: string;
     isSm?: boolean;
     href?: string;
 }
