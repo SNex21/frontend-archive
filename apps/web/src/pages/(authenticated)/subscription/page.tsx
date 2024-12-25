@@ -43,7 +43,6 @@ export default function SubscriptionPage() {
   }
 
   return (
-    <div className="page">Settings</div>
     <BackButton onClick={() => navigate("/account")} />
     <section className={cn("wrapper", styles.section)}>
       <h2 className={styles.section__heading}>Подписка</h2>
