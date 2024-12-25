@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Haptic } from "@/lib/twa/components/Haptic";
 import { Link } from "react-router-dom";
-import styles from "./Account.module.scss";
+import styles from "./Subscribe.module.scss";
 import cn from "classnames";
 
 import { useUser } from "@/providers/AuthProvider/AuthProvider";
