@@ -89,7 +89,7 @@ return (
         <p className={styles.card__content__description}>
             {price === 0 ? "Бесплатно" : `${price} руб.`}
         </p>
-            <h2 className={styles.section__heading}>Подписка</h2>
+        
         </div>
     </Link>
     </Haptic>
@@ -112,7 +112,7 @@ const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, i
                 </div>
             </Link>
             </Haptic>
-
+            <h2 className={styles.section__heading}>Подписка</h2>
         </div>
     );
     };
