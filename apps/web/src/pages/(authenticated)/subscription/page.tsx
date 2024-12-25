@@ -89,7 +89,7 @@ return (
         <p className={styles.card__content__description}>
             {price === 0 ? "Бесплатно" : `${price} руб.`}
         </p>
-        
+            <h2 className={styles.section__heading}>Подписка</h2>
         </div>
     </Link>
     </Haptic>
@@ -98,19 +98,22 @@ return (
 
 const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, isSm = false, href = "" }) => {
     return (
-        <Haptic type="impact" value="medium" asChild>
-        <Link to={href} className={styles.card}>
-            <div className={styles.card__content}>
-            <h3
-                className={cn(styles.card__content__title, {
-                [styles.card__content__title_sm!]: isSm,
-                })}>
-                {title}
-            </h3>
-            {description && <p className={styles.card__content__description}>{description}</p>}
-            </div>
-        </Link>
-        </Haptic>
+        <div>
+            <Haptic type="impact" value="medium" asChild>
+            <Link to={href} className={styles.card}>
+                <div className={styles.card__content}>
+                <h3
+                    className={cn(styles.card__content__title, {
+                    [styles.card__content__title_sm!]: isSm,
+                    })}>
+                    {title}
+                </h3>
+                {description && <p className={styles.card__content__description}>{description}</p>}
+                </div>
+            </Link>
+            </Haptic>
+
+        </div>
     );
     };
 
