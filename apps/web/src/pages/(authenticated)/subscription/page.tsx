@@ -112,7 +112,7 @@ const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, i
                 </div>
             </Link>
             </Haptic>
-            <h2 className={styles.section__heading}>Подписка</h2>
+            <h2 className={styles.section__heading}>Выбери свою подписку!</h2>
         </div>
     );
     };

@@ -3,6 +3,10 @@
     flex-direction: column;
     gap: var(--spacing-3);
     padding: var(--spacing-3);
+    &__heading {
+        font-size: 20px;
+        font-weight: 600;
+      }
   }
   
   .row {
