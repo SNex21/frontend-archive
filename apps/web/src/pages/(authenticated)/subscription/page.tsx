@@ -16,7 +16,7 @@ import { Skeleton } from "@repo/ui";
 interface WithSubscriptionCardProps {
     title: string;
     description?: string;
-    price?: string;
+    price?: number;
     isSm?: boolean;
     href?: string;
   }
@@ -65,7 +65,7 @@ export default function SubscriptionPage() {
             <WithSubscriptionCard
             title={`Подписка ${subscription.plan.title}`}
             description={`Действует до ${formatDate(subscription.end_date)}`}
-            price={`${subscription.price} руб.`}
+            price={subscription.price}
             href={"/"}
         />
         )}
