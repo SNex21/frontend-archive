@@ -86,7 +86,10 @@ return (
             {title}
         </h3>
         {description && <p className={styles.card__content__description}>{description}</p>}
-        {price}
+        <p className={styles.card__content__description}>
+            {price === 0 ? "Бесплатно" : `${price} руб.`}
+        </p>
+        
         </div>
     </Link>
     </Haptic>
