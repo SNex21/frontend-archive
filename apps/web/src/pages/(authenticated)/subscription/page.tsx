@@ -24,27 +24,29 @@ export default function SubscriptionPage() {
     const [year, month, day] = dateString.split("-"); // Разбиваем строку на компоненты
     return `${day}.${month}.${year}`; // Собираем в нужном формате
   };
-  if (!isLoading || subscription) {
-    return (
-        <section className={cn("wrapper", styles.section)}>
-        <h2 className={styles.section__heading}>Подписка</h2>
-        {!user.subscription ? (
-            <SubscriptionCard
-            title="У тебя пока нет подписки"
-            description="Открывай доступ ко всем заданиям с подпиской!"
-            href={"/"}
-        />
-        ) : (
-            <SubscriptionCard
-            title={`Подписка ${subscription.plan.title}`}
-            description={`Действует до ${formatDate(subscription.end_date)}`}
-            href={"/"}
-        />
-        )}
-        </section>
-        )
-    };
-};
+  if (isLoading || !subscription) {
+    return <SubscriptionSectionLoading />;
+  }
+
+  return (
+    <section className={cn("wrapper", styles.section)}>
+      <h2 className={styles.section__heading}>Подписка</h2>
+      {!user.subscription ? (
+        <SubscriptionCard
+        title="У тебя пока нет подписки"
+        description="Открывай доступ ко всем заданиям с подпиской!"
+        href={"/"}
+      />
+      ) : (
+        <SubscriptionCard
+        title={`Подписка ${subscription.plan.title}`}
+        description={`Действует до ${formatDate(subscription.end_date)}`}
+        href={"/"}
+      />
+      )}
+    </section>
+    )
+  };
 
 const SubscriptionCard: FC<SubscriptionCardProps> = ({ title, description, isSm = false, href = "" }) => {
 return (
@@ -63,3 +65,19 @@ return (
     </Haptic>
 );
 };
+
+const SubscriptionSectionLoading = () => {
+    return (
+      <section className="wrapper">
+        <div className={styles.cards}>
+          <Skeleton
+            style={{
+              height: "65px",
+              borderRadius: "var(--rounded-2xl)",
+              gridColumn: "span 2",
+            }}
+          />
+        </div>
+      </section>
+    );
+  };
