@@ -6,10 +6,6 @@ import { NoSubscriptionPage } from "./NoSubscription";
 export default function SubscriptionPage() {
     const user = useUser();
 
-    // if (isLoading || !subscription) {
-    //     return <SubscriptionSectionLoading />;
-    // }
-
     return (
     <div>
       {!user.subscription ? (
