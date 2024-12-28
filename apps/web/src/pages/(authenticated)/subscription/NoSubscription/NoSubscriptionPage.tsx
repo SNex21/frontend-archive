@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useCloudStorage } from "@/lib/twa/hooks";
 import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
 import { useQuery } from "@tanstack/react-query";
-import { getSubscriptionInfo } from "@/services/api/subscriptions";
+import { getSubscriptionInfo, getSubscriptionPlans } from "@/services/api/subscriptions";
 import { Skeleton } from "@repo/ui";
 
 interface NoSubscriptionCardProps {
@@ -23,7 +23,7 @@ export const NoSubscriptionPage: FC = () => {
   const navigate = useNavigate();
   const cloudStorage = useCloudStorage();
 
-  const { data: subscription, isLoading } = useQuery({
+  const { data: subscription, isLoadingSubInfo } = useQuery({
     queryKey: ["subscription"],
     queryFn: async () =>
       getSubscriptionInfo({
@@ -31,9 +31,18 @@ export const NoSubscriptionPage: FC = () => {
       }),
   });
 
-  if (isLoading || !subscription) {
+  const { data, isLoadingPlans } = useQuery({
+    queryKey: ["plans"],
+    queryFn: async () =>
+      getSubscriptionPlans({
+        token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
+      }),
+  });
+
+  if (isLoadingSubInfo || isLoadingPlans || !subscription) {
     return <SubscriptionSectionLoading />;
   }
+
 
   return (
     <div>
@@ -45,6 +54,13 @@ export const NoSubscriptionPage: FC = () => {
         description="Открывай доступ ко всем заданиям с подпиской!"
         href={"/"}
         />
+        {data.map((plan) => (
+        <NoSubscriptionCard
+        title={plan.title}
+        description={plan.description}
+        href={"/"}
+        />
+        ))}
 
         </section>
     </div>
@@ -74,6 +90,8 @@ const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, i
         </div>
     );
     };
+
+
 
 const SubscriptionSectionLoading = () => {
     return (
