@@ -17,3 +17,4 @@ interface Plan {
 }
 
 export { type Subscription };
+export { type Plan };
