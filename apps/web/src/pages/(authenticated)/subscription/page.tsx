@@ -9,9 +9,9 @@ export default function SubscriptionPage() {
     return (
     <div>
       {!user.subscription ? (
-            <WithSubscriptionPage/>
-        ) : (
             <NoSubscriptionPage/>
+        ) : (
+            <WithSubscriptionPage/>
         )}
     </div>
   );
