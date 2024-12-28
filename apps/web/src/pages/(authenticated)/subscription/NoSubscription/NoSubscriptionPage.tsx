@@ -31,7 +31,7 @@ export const NoSubscriptionPage: FC = () => {
       }),
   });
 
-  const { data, isLoading: isLoadingPlans } = useQuery({
+  const { data, isLoading: isLoadingPlans } = useQuery<GetPlansSubscriptionRes>({
     queryKey: ["plans"],
     queryFn: async () =>
       getSubscriptionPlans({
@@ -39,7 +39,7 @@ export const NoSubscriptionPage: FC = () => {
       }),
   });
 
-  if (isLoadingSubInfo || isLoadingPlans || !subscription) {
+  if (isLoadingSubInfo || isLoadingPlans || !subscription || !data) {
     return <SubscriptionSectionLoading />;
   }
 
