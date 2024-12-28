@@ -81,15 +81,15 @@ const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, i
     return (
         <div>
             <Haptic type="impact" value="medium" asChild>
-            <Link to={href} className={styles.card}>
-                <div className={styles.card__content}>
+            <Link to={href} className={styles.info_card}>
+                <div className={styles.info_card__content}>
                 <h3
-                    className={cn(styles.card__content__title, {
-                    [styles.card__content__title_sm!]: isSm,
+                    className={cn(styles.info_card__content__title, {
+                    [styles.info_card__content__title_sm!]: isSm,
                     })}>
                     {title}
                 </h3>
-                {description && <p className={styles.card__content__description}>{description}</p>}
+                {description && <p className={styles.info_card__content__description}>{description}</p>}
                 </div>
                 {
             
@@ -104,16 +104,16 @@ const PlanSubscriptionCard: FC<PlanSubscriptionCardProps> = ({ title, descriptio
   return (
       <div>
           <Haptic type="impact" value="medium" asChild>
-          <Link to={href} className={styles.card}>
-              <div className={styles.card__content}>
+          <Link to={href} className={styles.subscription_card}>
+              <div className={styles.subscription_card__content}>
               <h3
-                  className={cn(styles.card__content__title, {
-                  [styles.card__content__title_sm!]: isSm,
+                  className={cn(styles.subscription_card__content__title, {
+                  [styles.subscription_card__content__title_sm!]: isSm,
                   })}>
                   {title}
               </h3>
-              {description && <p className={styles.card__content__description}>{description}</p>}
-              {price && <p className={styles.card__content__description}>{price} руб.</p>}
+              {description && <p className={styles.subscription_card__content__description}>{description}</p>}
+              {price && <p className={styles.subscription_card__content__description}>{price} руб.</p>}
               </div>
               {
           

@@ -23,7 +23,7 @@
     width: 100%;
   }
   
-  .card {
+  .info_card {
     display: flex;
     align-items: center;
   
@@ -78,3 +78,57 @@
     }
   }
   
+.subscription_card {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+
+  min-height: 78px;
+
+  cursor: pointer;
+
+  border: 1px solid var(--ds-gray-alpha-400);
+  border-radius: var(--rounded-2xl);
+
+  background-color: var(--ds-background-200);
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 70px;
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-1);
+
+    &__title {
+      color: var(--spacing-1);
+
+      font-size: 18px;
+      font-weight: 600;
+      // margin-top: 20px; /* Отступ сверху */
+      // margin-bottom: 10px; /* Отступ снизу */
+      margin-left: 15px; /* Отступ слева */
+      margin-right: 0; /* Отступ справа */
+    }
+
+    &__title_sm {
+      font-size: 16px;
+    }
+
+    &__description {
+      color: var(--spacing-1);
+
+      font-size: 14px;
+      margin-left: 15px; /* Отступ слева */
+      font-weight: 500;
+    }
+  }
+}
