@@ -23,7 +23,7 @@ export const NoSubscriptionPage: FC = () => {
   const navigate = useNavigate();
   const cloudStorage = useCloudStorage();
 
-  const { data: subscription, isLoadingSubInfo } = useQuery({
+  const { data: subscription, isLoading: isLoadingSubInfo } = useQuery({
     queryKey: ["subscription"],
     queryFn: async () =>
       getSubscriptionInfo({
@@ -31,7 +31,7 @@ export const NoSubscriptionPage: FC = () => {
       }),
   });
 
-  const { data, isLoadingPlans } = useQuery({
+  const { data, isLoading: isLoadingPlans } = useQuery({
     queryKey: ["plans"],
     queryFn: async () =>
       getSubscriptionPlans({
