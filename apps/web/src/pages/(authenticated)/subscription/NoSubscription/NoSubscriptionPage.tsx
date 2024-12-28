@@ -31,7 +31,7 @@ export const NoSubscriptionPage: FC = () => {
       }),
   });
 
-  const { data, isLoading: isLoadingPlans } = useQuery<GetPlansSubscriptionRes>({
+  const { data, isLoading: isLoadingPlans } = useQuery({
     queryKey: ["plans"],
     queryFn: async () =>
       getSubscriptionPlans({
