@@ -19,6 +19,14 @@ interface NoSubscriptionCardProps {
     href?: string;
 }
 
+interface PlanSubscriptionCardProps {
+  title: string;
+  description?: string;
+  price: number;
+  isSm?: boolean;
+  href?: string;
+}
+
 export const NoSubscriptionPage: FC = () => {
   const navigate = useNavigate();
   const cloudStorage = useCloudStorage();
@@ -56,11 +64,12 @@ export const NoSubscriptionPage: FC = () => {
         />
         <h2 className={styles.section__subheading}>Выбери свою подписку!</h2>
         {data.map((plan) => (
-        <NoSubscriptionCard
-        title={plan.title}
-        description={plan.description}
-        href={"/"}
-        />
+          <PlanSubscriptionCard
+          title={plan.title}
+          description={plan.description}
+          price={plan.price}
+          href={"/"}
+          />
         ))}
 
         </section>
@@ -90,6 +99,30 @@ const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, i
         </div>
     );
     };
+
+const PlanSubscriptionCard: FC<PlanSubscriptionCardProps> = ({ title, description, price, isSm = false, href = "" }) => {
+  return (
+      <div>
+          <Haptic type="impact" value="medium" asChild>
+          <Link to={href} className={styles.card}>
+              <div className={styles.card__content}>
+              <h3
+                  className={cn(styles.card__content__title, {
+                  [styles.card__content__title_sm!]: isSm,
+                  })}>
+                  {title}
+              </h3>
+              {description && <p className={styles.card__content__description}>{description}</p>}
+              {price} рублей
+              </div>
+              {
+          
+              }
+          </Link>
+          </Haptic>
+      </div>
+  );
+  };
 
 
 
