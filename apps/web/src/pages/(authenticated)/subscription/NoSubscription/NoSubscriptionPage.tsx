@@ -54,6 +54,7 @@ export const NoSubscriptionPage: FC = () => {
         description="Открывай доступ ко всем заданиям с подпиской!"
         href={"/"}
         />
+        <h2 className={styles.section__subheading}>Выбери свою подписку!</h2>
         {data.map((plan) => (
         <NoSubscriptionCard
         title={plan.title}
@@ -86,7 +87,6 @@ const NoSubscriptionCard: FC<NoSubscriptionCardProps> = ({ title, description, i
                 }
             </Link>
             </Haptic>
-            <h2 className={styles.section__subheading}>Выбери свою подписку!</h2>
         </div>
     );
     };
