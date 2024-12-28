@@ -113,7 +113,7 @@ const PlanSubscriptionCard: FC<PlanSubscriptionCardProps> = ({ title, descriptio
                   {title}
               </h3>
               {description && <p className={styles.card__content__description}>{description}</p>}
-              {price} рублей
+              {price && <p className={styles.card__content__description}>{price} руб.</p>}
               </div>
               {
           
