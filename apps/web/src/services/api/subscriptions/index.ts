@@ -26,7 +26,6 @@ export const getPaymentUrl = async ({ token, ...params }: GetPaymentUrlReq): Pro
   const { data } = await apiClient.post<GetPayUrlRes>(`${API_ENDPOINTS.PAYMENT}`, params, {
     headers: {
       Authorization: `Bearer ${token}`,
-      maxRedirects: 5,
     },
   });
 
