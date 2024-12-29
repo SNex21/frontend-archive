@@ -23,7 +23,7 @@ export const getSubscriptionPlans = async ({ token }: GetPlansSubscriptionProps)
 };
 
 export const getPaymentUrl = async ({ token, ...params }: GetPaymentUrlReq): Promise<GetPayUrlRes> => {
-  const { data } = await apiClient.get<GetPayUrlRes>(`${API_ENDPOINTS.PAYMENT}`, params, {
+  const { data } = await apiClient.post<GetPayUrlRes>(`${API_ENDPOINTS.PAYMENT}`, params, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

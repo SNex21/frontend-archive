@@ -12,7 +12,7 @@ export default function SubscriptionBuyPage() {
     const cloudStorage = useCloudStorage();
 
     const { data: payment_url, isLoading } = useQuery({
-        queryKey: ["tasks"],
+        queryKey: ["url"],
         queryFn: async () =>
             getPaymentUrl({
             token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
@@ -29,8 +29,6 @@ export default function SubscriptionBuyPage() {
         return <SubscriptionBuyLoading />;
       }
 
-      console.log(payment_url.url);
-    
     return (
         <>
             <div className={styles.complete__buttons}>
