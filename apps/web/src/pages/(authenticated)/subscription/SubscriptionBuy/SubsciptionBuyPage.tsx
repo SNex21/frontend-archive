@@ -31,7 +31,7 @@ export default function SubscriptionBuyPage() {
     
     return (
         <>
-            <div className={styles.complete__buttons}>
+            <div className={styles.buttons}>
             <Button asChild>
                 <a href={payment_url.url} target="_blank" rel="noopener noreferrer">Купить!</a>
             </Button>
