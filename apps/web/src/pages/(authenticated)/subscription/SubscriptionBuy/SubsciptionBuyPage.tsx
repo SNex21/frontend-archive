@@ -24,11 +24,12 @@ export default function SubscriptionBuyPage() {
         refetchOnWindowFocus: false,
         gcTime: 0,
       });
-      console.log(payment_url.url);
 
       if (isLoading || !payment_url) {
         return <SubscriptionBuyLoading />;
       }
+
+      console.log(payment_url.url);
     
     return (
         <>
