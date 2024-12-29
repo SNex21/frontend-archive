@@ -4,7 +4,7 @@ import { useCloudStorage } from "@/lib/twa/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { getPaymentUrl } from "@/services/api/subscriptions";
 import { ACCESS_TOKEN_NAME } from "@/services/auth/storage.ts";
-import styles from "./SubscriptionBuy.scss";
+import styles from "./SubscriptionBuy.module.scss";
 
 
 export default function SubscriptionBuyPage() {
@@ -31,7 +31,7 @@ export default function SubscriptionBuyPage() {
     
     return (
         <>
-            <div className={styles.buttons}>
+            <div className={styles.complete__buttons}>
             <Button asChild>
                 <a href={payment_url.url} target="_blank" rel="noopener noreferrer">Купить!</a>
             </Button>
