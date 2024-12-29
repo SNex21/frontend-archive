@@ -5,7 +5,7 @@ import { GetSubInfoProps, GetPlansSubscriptionProps, GetPlansSubscriptionRes, Ge
 
 
 export const getSubscriptionInfo = async ({ token }: GetSubInfoProps): Promise<Subscription> => {
-  const { data } = await apiClient.get<Subscription>(`${API_ENDPOINTS.PAYMENT}subscription`, {
+  const { data } = await apiClient.get<Subscription>(`${API_ENDPOINTS.PAYMENT}/subscription`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -14,7 +14,7 @@ export const getSubscriptionInfo = async ({ token }: GetSubInfoProps): Promise<S
 };
 
 export const getSubscriptionPlans = async ({ token }: GetPlansSubscriptionProps): Promise<GetPlansSubscriptionRes> => {
-  const { data } = await apiClient.get<GetPlansSubscriptionRes>(`${API_ENDPOINTS.PAYMENT}plans`, {
+  const { data } = await apiClient.get<GetPlansSubscriptionRes>(`${API_ENDPOINTS.PAYMENT}/plans`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
