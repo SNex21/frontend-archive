@@ -1,7 +1,7 @@
 import { Subscription } from "@/models";
 import { apiClient } from "../client";
 import { API_ENDPOINTS } from "../endpoints";
-import { GetSubInfoProps, GetPlansSubscriptionProps, GetPlansSubscriptionRes } from "./types";
+import { GetSubInfoProps, GetPlansSubscriptionProps, GetPlansSubscriptionRes, GetPaymentUrlReq, GetPayUrlRes } from "./types";
 
 
 export const getSubscriptionInfo = async ({ token }: GetSubInfoProps): Promise<Subscription> => {
@@ -19,5 +19,15 @@ export const getSubscriptionPlans = async ({ token }: GetPlansSubscriptionProps)
       Authorization: `Bearer ${token}`,
     },
   });
+  return data;
+};
+
+export const getPaymentUrl = async ({ token, ...params }: GetPaymentUrlReq): Promise<GetPayUrlRes> => {
+  const { data } = await apiClient.post<any>(`${API_ENDPOINTS.PAYMENT}`, params, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
   return data;
 };

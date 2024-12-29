@@ -14,6 +14,7 @@ const TheoryPage = lazy(() => import("@/pages/(authenticated)/(with-tabbar)/theo
 const AccountPage = lazy(() => import("@/pages/(authenticated)/(with-tabbar)/account/page.tsx"));
 const SettingsPage = lazy(() => import("@/pages/(authenticated)/settings/page.tsx"));
 const SubscriptionPage = lazy(() => import("@/pages/(authenticated)/subscription/page.tsx"));
+const SubsciptionBuyPage = lazy(() => import("@/pages/(authenticated)/subscription/SubscriptionBuy/SubsciptionBuyPage.tsx"));
 
 const LessonPage = lazy(() => import("@/pages/(authenticated)/lesson/page.tsx"));
 
@@ -62,6 +63,7 @@ const router = createBrowserRouter(
         </Route>
 
         <Route path="/subscription" element={<SubscriptionPage />} />
+        <Route path="/subscription/:planId/*" element={<SubsciptionBuyPage />} />
         <Route path="/settings" element={<SettingsPage />} />
       </Route>
 

@@ -1,0 +1,19 @@
+
+.complete {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100dvw;
+    height: 100dvh;
+
+    background-color: var(--ds-background-100);
+
+    &__buttons {
+        padding: 0 var(--spacing-4);
+        padding-bottom: calc(20px + var(--lvh, 100vh) - var(--tg-viewport-height, 100vh));
+    }
+}
+  

@@ -68,7 +68,7 @@ export const NoSubscriptionPage: FC = () => {
           title={plan.title}
           description={plan.description}
           price={plan.price}
-          href={"/"}
+          href={`/subscription/${plan.id}`}
           />
         ))}
 
