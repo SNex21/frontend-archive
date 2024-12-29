@@ -1,5 +1,4 @@
 import { Button } from "@repo/ui";
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useCloudStorage } from "@/lib/twa/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -17,7 +16,7 @@ export default function SubscriptionBuyPage() {
         queryFn: async () =>
             getPaymentUrl({
             token: await cloudStorage.getItem(ACCESS_TOKEN_NAME),
-            plan_id: params.planId ? Number(params.planId) : undefined,
+            plan_id: Number(params.planId),
             email: "www@gmail.com", // починить
           }),
         refetchOnMount: false,
